@@ -13,10 +13,10 @@ function Sidebar({user, dispatchLogoutAction}) {
             </div>
             <ul className='main_side_menu'>
                 <li>
-                    <NavLink to="/orgs" ><i className="fas fa-building"/> <span>Orgs</span></NavLink >
+                    <NavLink to="/orgs" ><i className="fas fa-building"/> <span>Orgs</span></NavLink>
                 </li>
                 <li>
-                    <a href="#" ><i className="fas fa-book"/> <span>Courses</span></a>
+                    <NavLink to="/courses"><i className="fas fa-book"/> <span>Courses</span></NavLink>
                 </li>
                 <li>
                     <NavLink to="/requests"><i className="fas fa-plus-circle"/> <span>Requests</span></NavLink>

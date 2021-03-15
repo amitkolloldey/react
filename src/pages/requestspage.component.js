@@ -7,8 +7,6 @@ const RequestsPage = ({loading, requests, dispatchFetchUserRequestsAction, user}
     useEffect(() => dispatchFetchUserRequestsAction(), [dispatchFetchUserRequestsAction]);
     return (
         <div className='right_wrapper'>
-            <h2 className='page_title'>All Requests</h2>
-
             <div className='main_content'>
                 <Requests requests={requests} user={user}/>
             </div>

@@ -30,24 +30,24 @@ export const otpUser = (data, onSuccess, onError) => ({
         method: 'POST',
         url: 'requests/process',
         data,
-        success: (response) => (setUserInfo(response.data)),
-        postProcessSuccess: onSuccess,
-        postProcessError: onError
-    }
-})
-
-export const resetPass = (data, onSuccess, onError) => ({
-    type: constants.API,
-    payload: {
-        method: 'POST',
-        url: 'requests/process',
-        data,
         success: (response) => (accountCreated(response)),
         postProcessSuccess: onSuccess,
         postProcessError: onError
     }
 })
 
+export const resetPass = (data, onSuccess, onError) => (
+    {
+        type: constants.API,
+        payload: {
+            method: 'POST',
+            url: 'requests/process',
+            data,
+            success: (response) => (setUserInfo(response.data)),
+            postProcessSuccess: onSuccess,
+            postProcessError: onError
+        }
+    })
 
 export const enterResetEmail = (data, onSuccess, onError) => ({
     type: constants.API,
@@ -81,7 +81,7 @@ const setUserInfo = (data) => {
         phone: data.phone,
         email: data.email,
         bio: data.bio,
-        address: data.address,
+        address: data.address
     }
 
     localStorage.setItem('CURRENT_USER', JSON.stringify(userInfo))
@@ -94,7 +94,7 @@ const setUserInfo = (data) => {
 
 const accountCreated = (data) => {
     const message = {
-        success: 'Account Created Successfully!'
+        success: 'Success!'
     }
 
     return {
@@ -103,14 +103,15 @@ const accountCreated = (data) => {
     }
 }
 
-export const updateCurrentUser = (userId, data, onSuccess, onError) => ({
-    type: constants.API,
-    payload: {
-        method: 'PUT',
-        url: `users/${userId}`,
-        data,
-        success: (response) => (setUserInfo(response.data)),
-        postProcessSuccess: onSuccess,
-        postProcessError: onError
-    }
-});
+export const updateCurrentUser = (data, onSuccess, onError) => (
+    {
+        type: constants.API,
+        payload: {
+            method: 'PUT',
+            url: `users/${data.userId}`,
+            data,
+            success: (response) => (setUserInfo(response.data)),
+            postProcessSuccess: onSuccess,
+            postProcessError: onError
+        }
+    });

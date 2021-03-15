@@ -13,7 +13,6 @@ export const fetchUserRequests = (data, onSuccess, onError) => ({
 })
 
 const setAllRequests = (data) => {
-    console.log(data)
     return {
         type: constants.SET_ALL_REQUESTS,
         payload: data

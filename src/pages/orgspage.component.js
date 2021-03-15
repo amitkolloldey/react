@@ -8,7 +8,6 @@ const OrgsPage = ({loading, orgs, dispatchFetchAllOrgsAction}) => {
     return (
         <div className='right_wrapper'>
             <h2 className='page_title'>All Listed Organizations</h2>
-
             <div className='main_content'>
                 <Orgs orgs={orgs}/>
             </div>

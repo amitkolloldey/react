@@ -11,7 +11,7 @@ const Reset = ({dispatchResetAction}) => {
     const onSubmit = (data) => {
         dispatchResetAction(data.otp, data.password, (response) => {
             if (response) {
-                setTimeout(() => window.location.reload('/'), 1000)
+                setTimeout(() => window.location.replace('/'), 1000)
             }
             toast.success('Your Password Was Reset!');
         }, (message) => toast.error(message))

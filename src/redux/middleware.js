@@ -4,7 +4,6 @@ import * as constants from './constants'
 import {logOut} from "./actions/authActions";
 
 export const authMiddleware = ({dispatch, getState}) => next => action => {
-
     if (action.type !== constants.API) return next(action);
 
     dispatch(
@@ -24,8 +23,6 @@ export const authMiddleware = ({dispatch, getState}) => next => action => {
         url: BASE_URL + url,
         data: data ? data : null
     }).then((response) => {
-
-        console.log(response)
         dispatch(
             {
                 type: constants.TOGGLE_LOADER
@@ -34,7 +31,6 @@ export const authMiddleware = ({dispatch, getState}) => next => action => {
         if (success) dispatch(success(response))
         if (postProcessSuccess) setTimeout(() => postProcessSuccess(response), 1000)
     }).catch((err) => {
-
         dispatch(
             {
                 type: constants.TOGGLE_LOADER

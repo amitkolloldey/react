@@ -24,6 +24,9 @@ export default function authReducer(state = INITIAL_STATE, action) {
             return {
                 ...state.payload
             }
+        case constants.UPDATE_USER_INFO:
+            console.log(action.payload)
+            return { state, ...action.payload }
         case constants.RESET_USER_INFO:
             return {
                 ...defaultState

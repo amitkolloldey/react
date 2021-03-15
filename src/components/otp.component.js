@@ -11,7 +11,7 @@ const Otp = ({dispatchOtpAction}) => {
     const onSubmit = (data) => {
         dispatchOtpAction(data.otp, (response) => {
             if (response) {
-                setTimeout(() => window.location.reload(), 1000)
+                setTimeout(() => window.location.replace('/'), 1000)
             }
             toast.success('Successfully Validated!');
         }, (message) => toast.error(message))
@@ -29,7 +29,7 @@ const Otp = ({dispatchOtpAction}) => {
                 <button type="submit" className="btn btn-primary">Validate</button>
             </form>
             <div className="form_bottom_link">
-                <Link to='/register'>Login</Link>
+                <Link to='/register'>Register</Link>
                 <Link to='/login'>Login</Link>
                 <Link to='/enteremail'>Reset Password</Link>
             </div>

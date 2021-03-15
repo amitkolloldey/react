@@ -10,13 +10,13 @@ const Register = ({dispatchRegisterAction}) => {
     const {register, handleSubmit, errors} = useForm();
 
     const onSubmit = (data) => {
+        console.log(data)
         dispatchRegisterAction(data.name, data.email, data.password, data.phone, data.bio, data.address, data.pic, data.role, () => {
             toast.success('Account Created Successfully!');
             history.push('/otp')
         }, (message) => toast.error(message))
         return false
     }
-
     return (
         <div className='login_form'>
             <form noValidate className=" p-4" onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
@@ -75,7 +75,6 @@ const Register = ({dispatchRegisterAction}) => {
                 <Link to='/otp'>Enter Otp</Link>
                 <Link to='/enteremail'>Reset Password</Link>
             </div>
-
         </div>
     )
 }

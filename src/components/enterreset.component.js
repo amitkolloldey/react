@@ -11,7 +11,7 @@ const Reset = ({dispatchEnterResetAction}) => {
     const onSubmit = (data) => {
         dispatchEnterResetAction(data.email, (response) => {
             if (response) {
-                setTimeout(() => window.location.reload('/reset'), 1000)
+                setTimeout(() => window.location.replace('/reset'), 1000)
             }
             toast.success('Otp Sent to Your Email!');
         }, (message) => toast.error(message))
